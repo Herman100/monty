@@ -17,7 +17,6 @@
 *EXIT_FAILURE if an error occurs.
 */
 
-
 int main(int argc, char **argv)
 {
 	FILE *file;
@@ -46,20 +45,14 @@ int main(int argc, char **argv)
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
 		arg = strtok(NULL, " \t\n");
-		if (strcmp(opcode, "push") == 0)
-			push(&stack, line_number, arg);
-		else if (strcmp(opcode, "pall") == 0)
-			pall(&stack, line_number);
-		/* add more instructions here*/
-	else
-	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-		exit(EXIT_FAILURE);
-	}
+		if (!execute_opcode(opcode, arg, &stack, line_number))
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
+			exit(EXIT_FAILURE);
+		}
 	}
 
 	free_stack(stack);
-
 	fclose(file);
 	return (EXIT_SUCCESS);
 }
