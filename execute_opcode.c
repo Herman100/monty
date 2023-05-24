@@ -25,6 +25,16 @@ stack_t **stack, unsigned int line_number)
 		push(stack, line_number, arg);
 	else if (strcmp(opcode, "pall") == 0)
 		pall(stack, line_number);
+	else if (strcmp(opcode, "pint") == 0)
+		pall(stack, line_number);
+	else if (strcmp(opcode, "pop") == 0)
+		pall(stack, line_number);
+	else if (strcmp(opcode, "swap") == 0)
+		pall(stack, line_number);
+	else if (strcmp(opcode, "nop") == 0)
+		pall(stack, line_number);
+	else if (strcmp(opcode, "add") == 0)
+		pall(stack, line_number);
 	/* add more instructions here */
 	else
 		return (0); /* opcode not found */
