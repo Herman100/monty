@@ -16,13 +16,15 @@
  * known opcode instructions and calls the corresponding function
  * implementation if a match is found. The function returns 1 if the
  * opcode is successfully executed and 0 if the opcode is not found.
+ * @data_format: Pointer to the data format flag.
  */
 
 int execute_opcode(char *opcode, char *arg,
-stack_t **stack, unsigned int line_number)
+stack_t **stack, unsigned int line_number, int *data_format)
 {
+
 	if (strcmp(opcode, "push") == 0)
-		push(stack, line_number, arg);
+		push(stack, line_number, arg, *data_format);
 	else if (strcmp(opcode, "pall") == 0)
 		pall(stack, line_number);
 	else if (strcmp(opcode, "pint") == 0)
@@ -51,6 +53,10 @@ stack_t **stack, unsigned int line_number)
 		rotl(stack, line_number);
 	else if (strcmp(opcode, "rotr") == 0)
 		rotr(stack, line_number);
+	else if (strcmp(opcode, "stack") == 0)
+		set_stack(stack, line_number, data_format);
+	else if (strcmp(opcode, "queue") == 0)
+		set_queue(stack, line_number, data_format);
 	/* add more instructions here */
 	else
 		return (0); /* opcode not found */

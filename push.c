@@ -17,9 +17,9 @@
  * the program exits with failure. Otherwise, the string is converted to an
  * integer using the atoi function, and the resulting integer is added to the
  * stack using the add_node function.
+ * @data_format: Pointer to the data format flag.
  */
-
-void push(stack_t **stack, unsigned int line_number, char *n)
+void push(stack_t **stack, unsigned int line_number, char *n, int data_format)
 {
 	int num;
 
@@ -29,5 +29,8 @@ void push(stack_t **stack, unsigned int line_number, char *n)
 		exit(EXIT_FAILURE);
 	}
 	num = atoi(n);
-	add_node(stack, num);
+	if (data_format == 1) /* stack mode */
+		add_node(stack, num);
+	else /* queue mode */
+		add_node_end(stack, num);
 }

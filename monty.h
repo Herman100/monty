@@ -39,7 +39,6 @@ typedef struct instruction_s
 
 /*Fuction codes would be below this comment*/
 
-void push(stack_t **stack, unsigned int line_number, char *n);
 void pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void pint(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
@@ -49,8 +48,6 @@ void free_stack(stack_t *stack);
 void nop(stack_t **stack, unsigned int line_number);
 int _isdigit(char *str);
 void add_node(stack_t **stack, int n);
-int execute_opcode(char *opcode, char *arg,
-stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void division(stack_t **stack, unsigned int line_number);
@@ -59,7 +56,12 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
-
+void set_queue(stack_t **stack, unsigned int line_number, int *data_format);
+void set_stack(stack_t **stack, unsigned int line_number, int *data_format);
+int execute_opcode(char *opcode, char *arg,
+stack_t **stack, unsigned int line_number, int *data_format);
+void push(stack_t **stack, unsigned int line_number, char *n, int data_format);
+void add_node_end(stack_t **stack, int n);
 
 
 

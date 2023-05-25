@@ -21,6 +21,7 @@
 int main(int argc, char **argv)
 {
 	FILE *file;
+	int data_format = 1; /* 1 for stack (LIFO), 0 for queue (FIFO) */
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 	char line[MAX_LINE_LENGTH];
@@ -46,7 +47,7 @@ int main(int argc, char **argv)
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
 		arg = strtok(NULL, " \t\n");
-		if (!execute_opcode(opcode, arg, &stack, line_number))
+		if (!execute_opcode(opcode, arg, &stack, line_number, &data_format))
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 			exit(EXIT_FAILURE);
