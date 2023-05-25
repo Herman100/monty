@@ -17,6 +17,7 @@
 *EXIT_FAILURE if an error occurs.
 */
 
+
 int main(int argc, char **argv)
 {
 	FILE *file;

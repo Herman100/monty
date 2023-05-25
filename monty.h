@@ -37,7 +37,6 @@ typedef struct instruction_s
 } instruction_t;
 
 
-
 /*Fuction codes would be below this comment*/
 
 void push(stack_t **stack, unsigned int line_number, char *n);
@@ -57,7 +56,9 @@ void mul(stack_t **stack, unsigned int line_number);
 void division(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
-
+void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
 
 
 
