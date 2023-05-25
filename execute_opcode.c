@@ -35,6 +35,16 @@ stack_t **stack, unsigned int line_number)
 		nop(stack, line_number);
 	else if (strcmp(opcode, "add") == 0)
 		add(stack, line_number);
+	else if (strcmp(opcode, "sub") == 0)
+		sub(stack, line_number);
+	else if (strcmp(opcode, "div") == 0)
+		division(stack, line_number);
+	else if (strcmp(opcode, "mul") == 0)
+		mul(stack, line_number);
+	else if (strcmp(opcode, "mod") == 0)
+		mod(stack, line_number);
+	else if (strcmp(opcode, "pchar") == 0)
+		pchar(stack, line_number);
 	/* add more instructions here */
 	else
 		return (0); /* opcode not found */
